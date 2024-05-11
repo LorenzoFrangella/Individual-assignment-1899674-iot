@@ -1,0 +1,55 @@
+menu "Sampling configuration"
+
+    config SAMPLING_FREQUENCY
+        int "Set the default sampling frequency in Hz"
+        range 1 1000
+        default 1000
+        help
+            GPIO number (IOxx) to DS3231 SCL.
+            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to CS.
+            GPIOs 35-39 are input-only so cannot be used as outputs.
+
+    config FTT_ENABLED
+        int "Decide to run or not the fft to adjust in an adaptive manner the sampling frequency"
+        range 0 34
+        default 16
+        help
+            GPIO number (IOxx) to DS3231 SDA.
+            Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to DC.
+            GPIOs 35-39 are input-only so cannot be used as outputs.
+
+    config ZSCORE_THRESHOLD
+        int "Threshold value for the Z score, to identify outliers"
+        range 0 10
+        default 4
+        help
+            Your local timezone.
+            When it is 0, Greenwich Mean Time.
+    
+    config ENABLE_MQTT
+        bool "Decide to enable or not Mqtt to send data"
+        default y
+        help 
+            Decide to activate or not mqtt
+    
+    config MQTT_SERVER_ADDRESS
+        string "Set the server address for mqtt"
+        default "mqtt server address"
+        help
+            Insert the mqtt server address
+    
+    config WIFI_SSID
+        string "WIFI SSID"
+        default "my wifi ssid"
+        help
+            Insert the wifi SSID that you want to use
+
+    config WIFI_PASSKEY
+        string "WIFI PASSWORD"
+        default "password"
+        help
+            Insert the wifi Password
+        
+    
+
+endmenu
