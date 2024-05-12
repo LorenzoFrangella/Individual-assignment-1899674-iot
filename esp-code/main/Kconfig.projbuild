@@ -11,8 +11,8 @@ menu "Sampling configuration"
 
     config FTT_ENABLED
         int "Decide to run or not the fft to adjust in an adaptive manner the sampling frequency"
-        range 0 34
-        default 16
+        range 0 1
+        default 1
         help
             GPIO number (IOxx) to DS3231 SDA.
             Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to DC.
@@ -25,12 +25,15 @@ menu "Sampling configuration"
         help
             Your local timezone.
             When it is 0, Greenwich Mean Time.
-    
-    config ENABLE_MQTT
-        bool "Decide to enable or not Mqtt to send data"
-        default y
-        help 
-            Decide to activate or not mqtt
+
+    config SECONDS_FOR_AVG
+        int "Time interval to wait to send an average"
+        range 1 10
+        default 5
+        help
+            Insert the time that you want the device waits to send another packet with the average
+            of the values in that time window
+
     
     config MQTT_SERVER_ADDRESS
         string "Set the server address for mqtt"
@@ -38,6 +41,12 @@ menu "Sampling configuration"
         help
             Insert the mqtt server address
     
+    config MQTT_TOPIC
+        string "Set the topic to where publish messages"
+        default "frangella/individual/average"
+        help
+            Insert the topic
+
     config WIFI_SSID
         string "WIFI SSID"
         default "my wifi ssid"

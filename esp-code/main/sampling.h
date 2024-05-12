@@ -9,9 +9,9 @@ void sampling_task(void* args){
   uint32_t buffer[sampling_frequency*5];
   int counter=0;
   
-  printf("Sampling frequency: %d\n", sampling_frequency);
+  ESP_LOGW("SAMPLING_TASK","Sampling frequency: %d\n", sampling_frequency);
   int sampling_interval = configTICK_RATE_HZ / sampling_frequency;
-  printf("Time interval between each sample: %d\n", sampling_interval);
+  //printf("Time interval between each sample: %d\n", sampling_interval);
 
   esp_adc_cal_characterize(ADC_UNIT_1, ADC_ATTEN_DB_11, ADC_WIDTH_BIT_12, 0, &adc1_chars);
 
@@ -27,7 +27,7 @@ void sampling_task(void* args){
       if(counter == (sampling_frequency*5)){
         counter =0;
         xStreamBufferSend(buffer_handler,buffer,sizeof(buffer),100);
-        printf("Buffer sent!");
+        ESP_LOGI("SAMPLING_TASK","Buffer sent!");
       }
       vTaskDelay(pdMS_TO_TICKS(sampling_interval));
       
