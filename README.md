@@ -48,13 +48,31 @@ Code can be built and flashed in the esp by entering in the folder "eps-code" an
     idf.py build flash monitor
 
 To setup the parameters needed to make the project run is necessary to enter into menuconfig, 
-in the menu Sampling configuration and set
-    ******************************************************************************************************
-    *(1000) Set the default sampling frequency in Hz                                                     *
-    *(1) Decide to run or not the fft to adjust in an adaptive manner the sampling frequency             *
-    *(5) Threshold value for the Z score, to identify outliers                                           *
-    *(mqtt server address) Set the server address for mqtt                                               *
-    *(mqtt topic) Set the topic to where publish messages                                                *
-    *(wifi ssid) WIFI SSID                                                                               *
-    *(wifi password) WIFI PASSWORD                                                                       *
-    ******************************************************************************************************
+in the menu Sampling configuration and set:
+    
+    (1000) Set the default sampling frequency in Hz                                                     
+    (1) Decide to run or not the fft to adjust in an adaptive manner the sampling frequency             
+    (5) Threshold value for the Z score, to identify outliers                                           
+    (mqtt server address) Set the server address for mqtt                                               
+    (mqtt topic) Set the topic to where publish messages                                                
+    (wifi ssid) WIFI SSID                                                                               
+    (wifi password) WIFI PASSWORD
+
+Also another parameter in menuconfig must be changed:
+
+    Component config -> FreeRTOS -> Kernel -> ConfigTICK_RATE_HZ
+
+By default the value of this parameter is setted to 100. This means that the clock tick resolution of
+FreeRTOS is 100Hz. The problem is that in this project to adjust the frequency of sampling to values 
+higher than 100Hz is not possible using vTaskDelay() function, since this function takes as input the 
+number of ticks to wait to restart. Increasing this parameter to its maximum (1000) allows to sample
+up to 1kHz.
+
+Sampling at higher rates is still possible but not trivial, the easiest way to sample at higher frequency
+is to sample at maximum ADC frequency which is 2MHz. Then we will see drawbacks of sampling at this rates.
+
+---
+
+#### FFT execution
+
+    
