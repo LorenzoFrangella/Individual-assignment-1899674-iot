@@ -43,3 +43,18 @@ The code for the ESP32 can be found in the folder "esp-code" wich is structured 
             | -> structs.h      ---->   Data structures to pass arguments to tasks
             | -> wifi.h         ---->   File to use wifi
 
+Code can be built and flashed in the esp by entering in the folder "eps-code" and run
+
+    idf.py build flash monitor
+
+To setup the parameters needed to make the project run is necessary to enter into menuconfig, 
+in the menu Sampling configuration and set
+    ******************************************************************************************************
+    *(1000) Set the default sampling frequency in Hz                                                     *
+    *(1) Decide to run or not the fft to adjust in an adaptive manner the sampling frequency             *
+    *(5) Threshold value for the Z score, to identify outliers                                           *
+    *(mqtt server address) Set the server address for mqtt                                               *
+    *(mqtt topic) Set the topic to where publish messages                                                *
+    *(wifi ssid) WIFI SSID                                                                               *
+    *(wifi password) WIFI PASSWORD                                                                       *
+    ******************************************************************************************************
