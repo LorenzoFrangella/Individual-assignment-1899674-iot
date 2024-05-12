@@ -26,11 +26,12 @@ void app_main(){
     wifi_init_sta();
     esp_mqtt_client_handle_t client = mqtt_app_start();
 
-    int max_freq = 1000;
+    int max_freq = CONFIG_SAMPLING_FREQUENCY;
 
     if(CONFIG_FTT_ENABLED){
       max_freq = exectute_fft(NULL);
     }
+    
     
     StreamBufferHandle_t stream_average_handler = xStreamBufferCreate((sizeof(uint32_t)*5*max_freq),(sizeof(uint32_t)*5*max_freq));
 
@@ -38,8 +39,8 @@ void app_main(){
     struct sender_tools tools2 = {max_freq,stream_average_handler,client};
 
     if(max_freq!=0){
-      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",1024*30,&tools1,5,NULL,0);
-      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",1024*30,&tools2,5,NULL,1);
+      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",1024*40,&tools1,5,NULL,0);
+      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",1024*40,&tools2,5,NULL,1);
       //sampling_task(&tools1);
     }
     else{
