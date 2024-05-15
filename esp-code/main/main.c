@@ -39,8 +39,8 @@ void app_main(){
     struct sender_tools tools2 = {max_freq,stream_average_handler,client};
 
     if(max_freq!=0){
-      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",1024*40,&tools1,5,NULL,0);
-      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",1024*40,&tools2,5,NULL,1);
+      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",1024*45,&tools1,5,NULL,0);
+      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",1024*45,&tools2,5,NULL,1);
       //sampling_task(&tools1);
     }
     else{

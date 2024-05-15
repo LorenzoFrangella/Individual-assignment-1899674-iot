@@ -38,6 +38,18 @@ menu "Sampling configuration"
         help
             Insert the topic
 
+    config MQTT_USERNAME
+        string "mqtt username to connect"
+        default "username"
+        help
+            Insert the username
+
+    config MQTT_PASSWORD
+        string "Set the password to connect to mqtt server"
+        default "password"
+        help
+            Insert the password
+
     config WIFI_SSID
         string "WIFI SSID"
         default "my wifi ssid"

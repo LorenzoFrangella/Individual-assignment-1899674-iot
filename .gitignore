@@ -2,3 +2,4 @@
 .DS_Store
 /esp-code/sdkconfig
 /esp-code/sdkconfig.old
+/hivemq/hivemq.jks

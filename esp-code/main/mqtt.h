@@ -1,5 +1,8 @@
 #include "esp_log.h"
 #include "mqtt_client.h"
+#include "certificate.h"
+
+
 
 static void log_error_if_nonzero(const char *message, int error_code)
 {
@@ -72,6 +75,10 @@ static esp_mqtt_client_handle_t mqtt_app_start(void)
     
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = CONFIG_MQTT_SERVER_ADDRESS,
+        .broker.verification.certificate = (const char*) __esp_code_main_mqq_cert_pem,
+
+        .credentials.username =CONFIG_MQTT_USERNAME,
+        .credentials.authentication.password = CONFIG_MQTT_PASSWORD,
     };
 #if CONFIG_BROKER_URL_FROM_STDIN
     char line[128];
@@ -101,6 +108,7 @@ static esp_mqtt_client_handle_t mqtt_app_start(void)
     esp_mqtt_client_handle_t client = esp_mqtt_client_init(&mqtt_cfg);
     /* The last argument may be used to pass data to the event handler, in this example mqtt_event_handler */
     esp_mqtt_client_register_event(client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
+
     esp_mqtt_client_start(client);
     return client;
     
