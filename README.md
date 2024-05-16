@@ -104,4 +104,22 @@ can be changed into menuconfig.
 
 
 ---
-### Tests
+## Tests
+
+In the following part we will exectute some tests in order to evaluate the performances of the project. We are interested 
+in evaluating the performances in recognizing the maximum frequency to adjust the sampling frequency. The second objective in
+performance evaluation is the energy consumption, how much the samplig frequency affects the energy consumption and the energy drain
+in transmission of packet with wifi. Other field of interest for the evaluation is the round trip time for mqtt messages.
+
+### Max frequency identification
+
+For to evaluate the performances in evaluate the max frequency we choose 3 signals, all of them made from the sum of 3 sinusoids made
+from random frequencies. 
+
+
+### Energy consumption comparison
+
+
+### Round trip time measurement
+For rtt measurement there is a Variable in menuconfig, setting this variable to 1 a script that sends periodically the current time. Time is synchronized using ntp protocol on the esp32. On my local machine there is a script python in the file ****************, that allow us to
+measure the mean round trip time.
