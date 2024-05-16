@@ -29,3 +29,30 @@ void message_sender(void* args){
   }
 
 }
+
+void rtt_measures(esp_mqtt_client_handle_t client){
+  setenv("TZ", "CET-1CEST,M3.5.0,M10.5.0/3", 1);
+    
+  esp_sntp_setoperatingmode(SNTP_OPMODE_POLL);
+  esp_sntp_setservername(0, "pool.ntp.org");
+  esp_sntp_init();
+
+  while (sntp_get_sync_status() == SNTP_SYNC_STATUS_RESET) {
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+
+  while (1) {
+    struct timeval tv_now;
+    gettimeofday(&tv_now, NULL);
+    struct tm timeinfo;
+    localtime_r(&tv_now.tv_sec, &timeinfo);
+
+    char strftime_buf[64];
+    char msg[128];
+    strftime(strftime_buf, sizeof(strftime_buf), "%Y-%m-%d %H:%M:%S", &timeinfo);
+    sprintf(msg,"%s.%06ld", strftime_buf, tv_now.tv_usec);
+    int msg_id = esp_mqtt_client_publish(client, "/rtt", msg, 0, 1, 0);
+    
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
+  }
+}
