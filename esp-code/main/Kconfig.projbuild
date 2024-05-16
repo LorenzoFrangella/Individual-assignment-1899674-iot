@@ -17,7 +17,14 @@ menu "Sampling configuration"
             GPIO number (IOxx) to DS3231 SDA.
             Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to DC.
             GPIOs 35-39 are input-only so cannot be used as outputs.
-
+    
+    config RTT_TIME_MEASUREMENT
+        int "Decide if enable the round trip time measurement"
+        range 0 1
+        default 0
+        help 
+            If enabled a packet is sent over mqtt with the current time, so is possible to compute rtt in a server
+    
     config ZSCORE_THRESHOLD
         int "Threshold value for the Z score, to identify outliers"
         range 0 10
