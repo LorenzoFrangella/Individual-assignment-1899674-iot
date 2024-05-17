@@ -19,6 +19,8 @@
 #include "sender.h"
 
 
+
+
 void app_main(){
     esp_err_t ret = nvs_flash_init();
 
@@ -38,17 +40,29 @@ void app_main(){
     if(CONFIG_FTT_ENABLED){
       max_freq = exectute_fft(NULL);
     }
-    
+    if(max_freq ==0) max_freq = 1000;
     
     StreamBufferHandle_t stream_average_handler = xStreamBufferCreate((sizeof(uint32_t)*5*max_freq),(sizeof(uint32_t)*5*max_freq));
 
-    struct samplig_tools tools1 = {max_freq,stream_average_handler};
-    struct sender_tools tools2 = {max_freq,stream_average_handler,client};
+    struct samplig_tools* tools1 = malloc(sizeof(struct samplig_tools));
+    tools1->sampling_frequency = max_freq;
+    tools1->buffer_handler = stream_average_handler;
+    
+    
+    struct sender_tools* tools2 = malloc(sizeof(struct sender_tools));
+    tools2->sampling_frequency = max_freq;
+    tools2->buffer_handler = stream_average_handler;
+    tools2->sender_mqtt_handler = client;
+
+    //struct samplig_tools tools1 = {max_freq,stream_average_handler};
+    //struct sender_tools tools2 = {max_freq,stream_average_handler,client};
+
+    
 
     if(max_freq!=0){
-      int size = 4*(5*max_freq)*sizeof(uint32_t)+2048;
-      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",size,&tools1,5,NULL,0);
-      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",size,&tools2,5,NULL,1);
+      
+      xTaskCreatePinnedToCore(&sampling_task,"sampling_task",1024*25,tools1,5,NULL,0);
+      xTaskCreatePinnedToCore(&message_sender,"message_sender_task",1024*30,tools2,5,NULL,1);
       //sampling_task(&tools1);
     }
     else{

@@ -54,13 +54,16 @@ Code can be built and flashed in the esp by entering in the folder **esp-code** 
 To setup the parameters needed to make the project run is necessary to enter into menuconfig, 
 in the menu **Sampling configuration** and set:
     
-    (1000) Set the default sampling frequency in Hz                                                     
-    (1) Decide to run or not the fft to adjust in an adaptive manner the sampling frequency             
-    (5) Threshold value for the Z score, to identify outliers                                           
-    (mqtt server address) Set the server address for mqtt                                               
-    (mqtt topic) Set the topic to where publish messages                                                
-    (wifi ssid) WIFI SSID                                                                               
-    (wifi password) WIFI PASSWORD
+    (1000) Set the default sampling frequency in Hz
+    (1) Decide to run or not the fft to adjust in an adaptive manner the sampling frequency
+    (0) Decide if enable the round trip time measurement
+    (5) Threshold value for the Z score, to identify outliers
+    (mqtt server address) Set the server address for mqtt
+    (topic ) Set the topic to where publish messages
+    (username) mqtt username to connect
+    (password_mqtt) Set the password to connect to mqtt server
+    (ssid) WIFI SSID
+    (password_wifi) WIFI PASSWORD
 
 Also another parameter in menuconfig must be changed:
 
@@ -101,9 +104,11 @@ in a buffer which size is 5 times the sampling frequency, in order to send data 
 the average is sent using mqtt and wifi.
 To send messages WIFI is necessary, ssid and password can be set in menuconfig, and also mqtt server and topic is needed and 
 can be changed into menuconfig.
-
+Also Mqtt requires an username and a password, the comunication is over mqtts, so it is encrypted by tls, username and password for 
+authentication are inserted into the menuconfig.
 
 ---
+
 ## Tests
 
 In the following part we will exectute some tests in order to evaluate the performances of the project. We are interested 

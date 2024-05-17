@@ -17,6 +17,13 @@ menu "Sampling configuration"
             GPIO number (IOxx) to DS3231 SDA.
             Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used to DC.
             GPIOs 35-39 are input-only so cannot be used as outputs.
+
+    config ENABLE_MQTT
+        int "Decide to enable or not mqtt and the sending of a message"
+        range 0 1
+        default 1
+        help 
+            Select 1 to send messages to mqtt message broker
     
     config RTT_TIME_MEASUREMENT
         int "Decide if enable the round trip time measurement"
