@@ -29,6 +29,7 @@ void app_main(){
       ret = nvs_flash_init();
     }
 
+
     wifi_init_sta();
     esp_mqtt_client_handle_t client = mqtt_app_start();
 
@@ -40,7 +41,9 @@ void app_main(){
     if(CONFIG_FTT_ENABLED){
       max_freq = exectute_fft(NULL);
     }
-    if(max_freq ==0) max_freq = 1000;
+    while(max_freq==0){
+      max_freq = exectute_fft(NULL);
+    } 
     
     StreamBufferHandle_t stream_average_handler = xStreamBufferCreate((sizeof(uint32_t)*5*max_freq),(sizeof(uint32_t)*5*max_freq));
 

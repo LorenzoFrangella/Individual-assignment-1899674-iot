@@ -119,12 +119,18 @@ in transmission of packet with wifi. Other field of interest for the evaluation 
 ### Max frequency identification
 
 For to evaluate the performances in evaluate the max frequency we choose 3 signals, all of them made from the sum of 3 sinusoids made
-from random frequencies. 
-
+from random frequencies. In the file fft_experiments.txt there are the three experiments performed to test if the maximum frequency is
+detected, and also the z-score of each value is printed in order to define which is the best threshold to use.
+We can find out that values of z-scores of signals are: 4.335818, 4.230448, 4.618001, 4.535644, 5.050312, 4.404761, 3.690407, 4.462935,
+4.953433. These are only 9 values and the only thing that we can observe without a statistical analysis is that they are all of them above 3.69. This is not a rule to choose the z-index, performing several experiments it is possible to adjust the threshold to achieve an higher level of accuracy. 
+> An higher level of threshold could filter some frequencies near the peak, an andjust correctly the sampling frequency.
+> Drawbacks: An high number of experiments is needed to define a right threshold, an option could be an implementation of peaaks
+in the values that are above the threshold.
 
 ### Energy consumption comparison
-
+In the file ina_219_d1_mini.ino there is the Arduino code to run in order to measure the energy consumption of the board.
 
 ### Round trip time measurement
-For rtt measurement there is a Variable in menuconfig, setting this variable to 1 a script that sends periodically the current time. Time is synchronized using ntp protocol on the esp32. On my local machine there is a script python in the file ****************, that allow us to
-measure the mean round trip time.
+For rtt measurement there is a Variable in menuconfig, setting this variable to 1 a script that sends periodically the current time.
+Time is synchronized using ntp protocol on the esp32.
+On my local machine there is a script python in the file power_consumption_eval.ipynb, that allow us to measure the mean round trip time.

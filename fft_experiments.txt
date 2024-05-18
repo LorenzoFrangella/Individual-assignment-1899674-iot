@@ -1,0 +1,142 @@
+first experiment: 
+Random frquencies are: 300Hz, 225Hz, 36Hz
+
+FFT OUTPUT:
+ ________________________________________________________________
+0|                                                               |
+1|   |                                 |                         |
+2|   |                       |         |                         |
+3|   |    |              |   ||   |   |||                        |
+4|   ||  ||  | |  | |  | ||||||  ||||||||||||  |||  ||| |||  | | |
+5|||||||||||||||||||||||||||||||||||||| ||||||||||||||||||||||||||
+6|||||||||||||||||||||||| |||||||| ||||  |||||||||||| ||||||||||||
+7 | | |||| || |||||| |  |  | |  |     |   ||||| |  |  |  |||| | ||
+8             |  |         | |                                   |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+I (6410) view: Plot: Length=2048, min=0.000000, max=100.000000
+The spectrogram mean value is: 36.327202
+The spectrogram standard deviation is: 9.658599
+outlier at frequency: 0 Hz with z-score: 6.390560
+outlier at frequency: 0 Hz with z-score: 6.390976
+outlier at frequency: 35 Hz with z-score: 4.071145
+outlier at frequency: 36 Hz with z-score: 4.335818 <---- frequency of signal
+outlier at frequency: 36 Hz with z-score: 3.338726
+outlier at frequency: 224 Hz with z-score: 3.160395
+outlier at frequency: 224 Hz with z-score: 3.195560
+outlier at frequency: 225 Hz with z-score: 3.258721 
+outlier at frequency: 225 Hz with z-score: 4.230448 <---- frequency of signal
+outlier at frequency: 225 Hz with z-score: 3.947133
+outlier at frequency: 226 Hz with z-score: 3.007321
+outlier at frequency: 297 Hz with z-score: 3.095200
+outlier at frequency: 297 Hz with z-score: 3.249821
+outlier at frequency: 297 Hz with z-score: 3.006212
+outlier at frequency: 298 Hz with z-score: 3.157692
+outlier at frequency: 298 Hz with z-score: 3.095535
+outlier at frequency: 298 Hz with z-score: 3.101073
+outlier at frequency: 299 Hz with z-score: 3.939395
+outlier at frequency: 299 Hz with z-score: 3.789732
+outlier at frequency: 300 Hz with z-score: 3.084688
+outlier at frequency: 300 Hz with z-score: 4.024405
+outlier at frequency: 300 Hz with z-score: 4.618001  <---- frequency of signal (maximum freq)
+outlier at frequency: 300 Hz with z-score: 4.127544
+outlier at frequency: 301 Hz with z-score: 3.355965
+outlier at frequency: 301 Hz with z-score: 3.294007
+outlier at frequency: 301 Hz with z-score: 3.599821
+outlier at frequency: 301 Hz with z-score: 3.238162
+
+
+####################################################
+
+Random frquencies are: 193Hz, 407Hz, 28Hz
+
+FFT OUTPUT:
+ ________________________________________________________________
+0|                                                               |
+1|                       |                                       |
+2|  |                    |                          ||           |
+3|  |                    ||  |                      ||           |
+4||||| ||         |   |||||||| ||             | |||||||||        |
+5|||||||||||||||||||||||| |||||||||| | |||||||||||||||||||||||||||
+6||||||||||||||||||||||||  || |||||||||||||| ||||  |  || ||||| |||
+7|| | |||   |    |  | ||      |    || ||   |   |         || || |||
+8                                     |        |                ||
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+I (8026) view: Plot: Length=2048, min=0.000000, max=100.000000
+The spectrogram mean value is: 34.132496
+The spectrogram standard deviation is: 9.424128
+outlier at frequency: 0 Hz with z-score: 6.784945
+outlier at frequency: 0 Hz with z-score: 6.785251
+outlier at frequency: 27 Hz with z-score: 4.139224
+outlier at frequency: 28 Hz with z-score: 4.535644  <----- frequency of signal
+outlier at frequency: 28 Hz with z-score: 3.659060
+outlier at frequency: 191 Hz with z-score: 3.082180
+outlier at frequency: 191 Hz with z-score: 3.331552
+outlier at frequency: 191 Hz with z-score: 3.372059
+outlier at frequency: 192 Hz with z-score: 3.221900
+outlier at frequency: 192 Hz with z-score: 3.893739
+outlier at frequency: 192 Hz with z-score: 3.157093
+outlier at frequency: 193 Hz with z-score: 5.050312 <----- frequency of singal 
+outlier at frequency: 193 Hz with z-score: 4.924614
+outlier at frequency: 193 Hz with z-score: 4.033531
+outlier at frequency: 193 Hz with z-score: 3.375471
+outlier at frequency: 405 Hz with z-score: 3.369441
+outlier at frequency: 406 Hz with z-score: 3.662985
+outlier at frequency: 406 Hz with z-score: 3.804914
+outlier at frequency: 406 Hz with z-score: 3.741687
+outlier at frequency: 406 Hz with z-score: 3.249738
+outlier at frequency: 406 Hz with z-score: 3.893702
+outlier at frequency: 407 Hz with z-score: 3.800092
+outlier at frequency: 407 Hz with z-score: 4.404761 <-----  frequency of signal (maximum)
+outlier at frequency: 407 Hz with z-score: 4.022450
+outlier at frequency: 407 Hz with z-score: 3.681264
+outlier at frequency: 408 Hz with z-score: 3.093709
+
+
+####################################################
+
+random frquencies are: 82Hz, 51Hz, 9Hz
+
+FFT OUTPUT:
+
+ ________________________________________________________________
+0|                                                               |
+1|         |                                                     |
+2||    |   |                                                     |
+3||    |  |||                                                    |
+4|||  ||||||||||                                                 |
+5 ||||||||| ||||||||||||||||||||||||||||| || ||                  |
+6  ||| | ||  || || |||||||||||||||||||||||||||||||||||||||||||||||
+7                | |   |  |    |      |  | ||  |||||||||||||||||||
+8                |     |                    |    |||||||| | |||| |
+9                                                                |
+ 0123456789012345678901234567890123456789012345678901234567890123
+I (28324) view: Plot: Length=2048, min=0.000000, max=100.000000
+The spectrogram mean value is: 30.861790
+The spectrogram standard deviation is: 9.977233
+outlier at frequency: 0 Hz with z-score: 6.731399
+outlier at frequency: 0 Hz with z-score: 6.726722
+outlier at frequency: 9 Hz with z-score: 3.690407 <----- frequency of signal
+outlier at frequency: 9 Hz with z-score: 3.577257
+outlier at frequency: 50 Hz with z-score: 3.203207
+outlier at frequency: 51 Hz with z-score: 3.976174
+outlier at frequency: 51 Hz with z-score: 4.462935 <----- frequency of signal
+outlier at frequency: 51 Hz with z-score: 4.019685
+outlier at frequency: 51 Hz with z-score: 3.349940
+outlier at frequency: 80 Hz with z-score: 3.183547
+outlier at frequency: 80 Hz with z-score: 3.326721
+outlier at frequency: 80 Hz with z-score: 3.215143
+outlier at frequency: 80 Hz with z-score: 3.293227
+outlier at frequency: 81 Hz with z-score: 3.710008
+outlier at frequency: 81 Hz with z-score: 4.012578
+outlier at frequency: 81 Hz with z-score: 3.838018
+outlier at frequency: 82 Hz with z-score: 4.641714
+outlier at frequency: 82 Hz with z-score: 4.953433 <----- frequency of signal (maximum)
+outlier at frequency: 82 Hz with z-score: 4.241937
+outlier at frequency: 83 Hz with z-score: 3.874155
+outlier at frequency: 83 Hz with z-score: 4.079309
+outlier at frequency: 83 Hz with z-score: 3.704291
+outlier at frequency: 83 Hz with z-score: 3.238277
+
+For all of these 3 signals randomly generated, the maximum frequency is always detected
