@@ -43,7 +43,10 @@ void app_main(){
     }
     while(max_freq==0){
       max_freq = exectute_fft(NULL);
+      break;
     } 
+
+    if(max_freq == 0) max_freq = 1000;
     
     StreamBufferHandle_t stream_average_handler = xStreamBufferCreate((sizeof(uint32_t)*5*max_freq),(sizeof(uint32_t)*5*max_freq));
 
