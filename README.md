@@ -129,6 +129,17 @@ in the values that are above the threshold.
 
 ### Energy consumption comparison
 In the file ina_219_d1_mini.ino there is the Arduino code to run in order to measure the energy consumption of the board.
+Some plots for difference of energy consumption:
+
+<p align="center">
+  <img src="img/plots/energy.png" />
+</p>
+
+<p align="center">
+  <img src="img/plots/energy_wifi.png" />
+</p>
+
+
 
 ### Round trip time measurement
 For rtt measurement there is a Variable in menuconfig, setting this variable to 1 a script that sends periodically the current time.
@@ -137,4 +148,4 @@ On my local machine there is a script python in the file power_consumption_eval.
 
 ### Network usage measurement
 To measure the network consumption of the was made by turning my local machine into a wifi access point and then monitor all the packets.
-The capured packets are in the file: ** capture esp32.pcapng **, produced with wireshark. 
+The capured packets are in the file: <b>capture esp32.pcapng </b> , produced with wireshark.
