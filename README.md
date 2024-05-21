@@ -134,3 +134,7 @@ In the file ina_219_d1_mini.ino there is the Arduino code to run in order to mea
 For rtt measurement there is a Variable in menuconfig, setting this variable to 1 a script that sends periodically the current time.
 Time is synchronized using ntp protocol on the esp32.
 On my local machine there is a script python in the file power_consumption_eval.ipynb, that allow us to measure the mean round trip time.
+
+### Network usage measurement
+To measure the network consumption of the was made by turning my local machine into a wifi access point and then monitor all the packets.
+The capured packets are in the file: ** capture esp32.pcapng **, produced with wireshark. 
