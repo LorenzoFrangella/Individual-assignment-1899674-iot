@@ -146,6 +146,9 @@ For rtt measurement there is a Variable in menuconfig, setting this variable to 
 Time is synchronized using ntp protocol on the esp32.
 On my local machine there is a script python in the file power_consumption_eval.ipynb, that allow us to measure the mean round trip time.
 
+> average RTT in case of home wifi is 518 msec
+> average RTT in case of phone Hotspot is 899 msec
+
 ### Network usage measurement
 To measure the network consumption of the was made by turning my local machine into a wifi access point and then monitor all the packets.
-The capured packets are in the file: <b>capture esp32.pcapng </b> , produced with wireshark.
+The capured packets are in the file: <b> capture esp32.pcapng </b> , produced with wireshark. The average packet size is of 112 bytes for trasmitting the packet on mqtts and 60 bytes for each packet.
