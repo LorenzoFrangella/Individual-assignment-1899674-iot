@@ -78,6 +78,12 @@ up to 1kHz.
 Sampling at higher rates is still possible but not trivial, the easiest way to sample at higher frequency
 is to sample at maximum ADC frequency which is 2MHz. Then we will see drawbacks of sampling at this rates.
 
+For sampling configuration there are requested two parameters: ADC_ATTENUATION_DB and ADC_BIT_WIDTH, for attenuation 
+since we have a signal centered in 1650 mV we have to use attenuation 11dB (deprecated and substituted with 12dB) and 
+since for fft values must be stored in an array of unsigned int, as space requirements it does not matter if we use 
+9 , 10 , 11 or 12 bits. I evaluate that in terms of energy consumption and the average consumption for both is 215 mV.
+
+
 ---
 
 ### FFT execution
